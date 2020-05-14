@@ -1,0 +1,12 @@
+version: '3'
+services: 
+  sitl:
+    build: .
+    image: sitl 
+    ports:
+      - 5760:5760
+      - 14550:14550
+networks: 
+  default:
+    external: 
+      name: 'sitl'

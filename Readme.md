@@ -13,4 +13,4 @@ run the docker-compose file with docker-compose up and run the test.py file with
 
 prebuilt version of this container at <a>https://hub.docker.com/repository/docker/valqaridrone/sitl 
 
-or docker pull valqaridrone/sitle:latest
+or docker pull valqaridrone/sitl:latest

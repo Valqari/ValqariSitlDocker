@@ -16,7 +16,7 @@ sitl = None
 #Start SITL if no connection string specified
 if not connection_string:
     import dronekit_sitl
-    sitl = dronekit_sitl.start_default()
+    sitl = dronekit_sitl.start_default() #.start_default()
     connection_string = sitl.connection_string()
 
 
@@ -24,7 +24,7 @@ if not connection_string:
 print('Connecting to vehicle on: %s' % connection_string)
 
 #TODO make SITL connection string dynamic again instead of hard coded UDP port
-vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
+vehicle = connect('tcp:127.0.0.1:5763', wait_ready=True)
 cmds = vehicle.commands
 vehicle.initialize(4,heartbeat_timeout=120)
 
@@ -46,6 +46,12 @@ while not vehicle.armed:
 #takeoff, hover for 10 seconds and then land
 
 vehicle.simple_takeoff(15)
-time.sleep(1)
+vehicle.wait_for_alt(15)
+vehicle.simple_goto(LocationGlobal(41.881829, -87.630875,20))
+vehicle.w
+print('taking off')
 vehicle.mode = VehicleMode('LAND')
+
+time.sleep(10)
+vehicle.close()
 

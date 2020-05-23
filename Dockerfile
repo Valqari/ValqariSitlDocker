@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:2.7
 
 #USER Dronekit
 
@@ -9,8 +9,9 @@ WORKDIR /app
 RUN pip install dronekit-sitl -UI
 
 EXPOSE 5760
+EXPOSE 5762
+EXPOSE 5763
 EXPOSE 14550
 
 ENTRYPOINT ["dronekit-sitl"]
-
-CMD ["copter"] 
+CMD ["copter","--home=41.879427,-87.630797,0,0"] 

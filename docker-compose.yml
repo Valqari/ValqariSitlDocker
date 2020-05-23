@@ -5,6 +5,8 @@ services:
     image: sitl 
     ports:
       - 5760:5760
+      - 5762:5762
+      - 5763:5763
       - 14550:14550
 networks: 
   default:
